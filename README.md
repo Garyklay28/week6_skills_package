@@ -155,4 +155,7 @@ mkdir -p ~/.claude/skills && cp -R export/skills/. ~/.claude/skills/
 
 claude.ai: Settings → Capabilities → Skills에서 `export/zips/`의 zip 7개를 하나씩 업로드 / 在 Settings → Capabilities → Skills 里逐个上传 `export/zips/` 中的 7 个 zip。
 
-설치 후 새 세션에서 "이 중국어 자막을 영어로 번역해 줘" / "把这个中文字幕翻成英文"라고 하면 `subtitle-zh-en-pipeline`이 실행됩니다. / 安装后在新会话里这样说就会触发。
+**호출 / 调用**
+- Claude Code: 스킬 이름은 **`字幕翻译`** 입니다. 새 세션에서 `/字幕翻译 <파일 경로>`를 입력하세요. 폴더 이름인 `/subtitle-zh-en-pipeline`도 계속 작동합니다. / Claude Code 里 skill 名是 **`字幕翻译`**，新会话里输入 `/字幕翻译 <文件路径>`；用文件夹名 `/subtitle-zh-en-pipeline` 也照样能调用。
+- claude.ai: Agent Skills 규격상 이름에는 소문자 영문·숫자·하이픈만 쓸 수 있어서, zip은 `subtitle-zh-en-pipeline`이라는 이름을 유지합니다. 설명에 「字幕翻译」를 넣어 두었으니 "字幕翻译"라고 말하면 선택됩니다. / Agent Skills 规范要求名字只能用小写英文、数字和连字符，所以 zip 里的名字仍是 `subtitle-zh-en-pipeline`；描述里写了「字幕翻译」，说"字幕翻译"就会选中它。
+- 자연어로 "이 중국어 자막을 영어로 번역해 줘" / "把这个中文字幕翻成英文"라고 해도 됩니다. / 直接用自然语言说也可以。

@@ -1,6 +1,6 @@
 ---
-name: subtitle-zh-en-pipeline
-description: Translate a Chinese film subtitle/dialogue list (one subtitle per line, or SRT) into natural, on-screen-ready English. Orchestrates six open-source skills (baoyu-translate, subtitle-translation, srt-translator, alterlab-cdm-subtitle-loc, humanizer, verification-before-completion) and a bundled subtitle checker. Use when the user asks to translate Chinese subtitles, 字幕, or a dialogue list into English.
+name: 字幕翻译
+description: 字幕翻译 (subtitle-zh-en-pipeline). Translate a Chinese film subtitle/dialogue list (one subtitle per line, or SRT) into natural, on-screen-ready English. Orchestrates six open-source skills (baoyu-translate, subtitle-translation, srt-translator, alterlab-cdm-subtitle-loc, humanizer, verification-before-completion) and a bundled subtitle checker. Use when the user says 字幕翻译 or asks to translate Chinese subtitles, 字幕, or a dialogue list into English.
 license: MIT
 ---
 
