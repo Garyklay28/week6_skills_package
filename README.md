@@ -34,6 +34,9 @@ B_with_skills/
 eval/
   compare.py                   A·B를 같은 검사기로 채점 / 用同一个检查器给 A、B 打分
   COMPARISON.md                전체 비교표 + 줄별 비교 / 完整对比表 + 逐行对比
+export/
+  skills/                      바로 설치할 수 있는 7개 스킬 (8절) / 可直接安装的 7 个 skill（见第 8 节）
+  zips/                        claude.ai 업로드용 zip / 上传 claude.ai 用的 zip
 ```
 
 ## 3. 실험 방법 / 实验方法
@@ -127,3 +130,29 @@ Python 3 표준 라이브러리만 사용합니다. / 只用 Python 3 标准库�
 - 检查器只抓 em/en 破折号（—、–），漏掉了 ASCII `--`，A 的第 92、95 行就是这种情况。为了不在实验后改评分标准，检查器保持原样，在这里记录。
 - 检查器只看格式和长度，翻译准确性只靠 4.2 节的人工对比。
 - A、B 各只跑了一次（同一模型每次结果也可能不同）。
+
+## 8. 설치 / 安装
+
+**한국어** `B_with_skills/skills/`는 이 저장소 안에서 실험하기 위한 버전입니다(저장소 경로에 묶여 있음). 다른 프로젝트에서 쓰려면 `export/skills/`를 설치하세요. 실험 버전과 다른 점:
+- 총괄 스킬이 검사 스크립트를 자기 폴더(`scripts/`)에 포함하고, 다른 6개 스킬을 같은 위치의 형제 폴더에서 찾습니다.
+- baoyu-translate 설정 파일이 없으면 `assets/EXTEND.md`를 프로젝트에 복사해서 첫 설정 단계에서 멈추지 않습니다.
+- 용어 일관성 목록(`terms.json`)을 작품마다 용어집에서 자동으로 만듭니다.
+- SRT 입력도 받으며, 번호와 타임코드는 그대로 복사합니다.
+- 검사 스크립트가 ASCII `--`도 필수 위반으로 잡습니다. 4절 점수는 실험 당시 검사기로 낸 것이라 바꾸지 않았습니다(새 검사기로는 A의 92·95번 줄이 걸림).
+
+**中文** `B_with_skills/skills/` 是在本仓库里做实验用的版本（写死了仓库路径）。要在别的项目里用，请安装 `export/skills/`。和实验版的区别：
+- 总控 skill 把检查脚本放在自己的 `scripts/` 里，其余 6 个 skill 按同级文件夹去找。
+- 找不到 baoyu-translate 的配置文件时，把 `assets/EXTEND.md` 复制到项目里，不会卡在初次设置。
+- 术语一致性列表（`terms.json`）按每部片子的术语表自动生成。
+- 支持 SRT 输入，序号和时间码原样复制。
+- 检查脚本把 ASCII `--` 也算作硬性错误。第 4 节的分数是用实验时的检查器算的，没有改（用新检查器的话，A 的第 92、95 行会被标出）。
+
+Claude Code (개인 스킬 / 个人 skill):
+
+```bash
+mkdir -p ~/.claude/skills && cp -R export/skills/. ~/.claude/skills/
+```
+
+claude.ai: Settings → Capabilities → Skills에서 `export/zips/`의 zip 7개를 하나씩 업로드 / 在 Settings → Capabilities → Skills 里逐个上传 `export/zips/` 中的 7 个 zip。
+
+설치 후 새 세션에서 "이 중국어 자막을 영어로 번역해 줘" / "把这个中文字幕翻成英文"라고 하면 `subtitle-zh-en-pipeline`이 실행됩니다. / 安装后在新会话里这样说就会触发。
